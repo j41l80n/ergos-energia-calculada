@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_tela_calculo"
+    android:orientation="vertical" >
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar" >
+    </include>
+    <ListView
+        android:animateLayoutChanges="true"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_height="0dp"
+        android:id="@+id/lv_tela_calculo_itens"
+        android:choiceMode="multipleChoice"
+        android:smoothScrollbar="true"
+        android:fastScrollEnabled="true"
+        android:fastScrollAlwaysVisible="false"
+        android:layout_weight="1"
+        android:divider="@color/DeepSkyBlue"
+        android:dividerHeight="0.5sp" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0"
+        android:background="@color/cinza"
+        android:id="@+id/tl_tela_calculo_consumos_custo" >
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="kWh diário"
+                android:id="@+id/tv_tela_calculo_kwh_diario"
+                android:gravity="center" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_tela_calculo_kwh_diario_resultado" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="kWh mensal: "
+                android:gravity="center"
+                android:id="@+id/tv_tela_calculo_kwh_mensal" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_tela_calculo_kwh_mensal_resultado" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custo total mensal (R$): "
+                android:id="@+id/tv_tela_calculo_custo_total_mensal"
+                android:gravity="center" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="clique para inserir o custo kWh"
+                android:id="@+id/tv_tela_calculo_custo_total_mensal_calculado" />
+        </TableRow>
+    </TableLayout>
+    <TableLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cinza"
+        android:id="@+id/tl_tela_calculo_consumos_custo_extra">
+        <TableRow
+            android:layout_gravity="center"
+            android:gravity="center">
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preço do kWh"
+                android:id="@+id/tv_extra" />
+            <TableRow>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="5"
+                    android:visibility="gone"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/branco"
+                    android:layout_marginBottom="15dp"
+                    android:id="@+id/et_tela_calculo_inserir_custo_kwh" />
+            </TableRow>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

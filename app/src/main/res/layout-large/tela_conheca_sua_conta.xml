@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_frame"
+    android:background="@color/branco"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ImageView
+        android:id="@+id/iv_tela_conheca_sua_conta_conta_de_luz_mascara"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        android:src="@drawable/conta_de_luz_mascara" />
+    <ImageView
+        android:id="@+id/iv_tela_conheca_sua_conta_conta_de_luz"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/conta_de_luz" />
+</FrameLayout>

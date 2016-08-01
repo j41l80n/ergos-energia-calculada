@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Blue">#0000FF</color>
+    <color name="cinza">#888888</color>
+    <color name="Khaki">#F0E68C</color>
+    <color name="preto">#000000</color>
+    <color name="verde">#688f2b</color>
+    <color name="branco">#FFFFFF</color>
+    <color name="Orange">#FFA500</color>
+    <color name="laranja">#f48905</color>
+    <color name="SkyBlue">#87CEEB</color>
+    <color name="amarelo">#f6f700</color>
+    <color name="vermelho">#c6360a</color>
+    <color name="Gainsboro">#DCDCDC</color>
+    <color name="SlateBlue">#6A5ACD</color>
+    <color name="cinza_claro">#EEE9E9</color>
+    <color name="azul_escuro">#003366</color>
+    <color name="DeepSkyBlue">#00BFFF</color>
+    <color name="LightSkyBlue">#87CEFA</color>
+    <color name="botao_normal">#929392</color>
+    <color name="ColorPrimary">#FF5722</color>
+    <color name="amarelo_ouro">#DBC400</color>
+    <color name="CornflowerBlue">#6495ED</color>
+    <color name="tabsScrollColor">#8a140e</color>
+    <color name="ColorPrimaryDark">#E64A19</color>
+    <color name="botao_pressionado">#c0c1c0</color>
+</resources>

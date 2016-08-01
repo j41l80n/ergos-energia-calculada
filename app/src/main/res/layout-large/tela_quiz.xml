@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_principal"
+    android:background="@drawable/bg_tela_quiz"
+    android:orientation="vertical">
+    <TextView
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="57dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tela_quiz_tv_pergunta"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <ScrollView
+        android:visibility="gone"
+        android:layout_below="@+id/tela_quiz_tv_pergunta"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/rl_bt_pular"
+        android:id="@+id/sv_quis"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="57dp"
+        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:fillViewport="true"
+        android:gravity="top"
+        android:scrollbars="none" >
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/tela_quiz_rg_quiz"
+                android:layout_gravity="center" >
+                <RadioButton
+                    android:padding="8dp"
+                    android:button="@drawable/rb_personalizado_tela_quiz_acertivas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tela_quiz_rb_acertiva_a"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <RadioButton
+                    android:padding="8dp"
+                    android:button="@drawable/rb_personalizado_tela_quiz_acertivas"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/tela_quiz_rb_acertiva_b" />
+                <RadioButton
+                    android:padding="8dp"
+                    android:button="@drawable/rb_personalizado_tela_quiz_acertivas"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/tela_quiz_rb_acertiva_c" />
+                <RadioButton
+                    android:padding="8dp"
+                    android:button="@drawable/rb_personalizado_tela_quiz_acertivas"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/tela_quiz_rb_acertiva_d" />
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rl_bt_pular"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="57dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginLeft="280dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="acertos"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:gravity="left|center_vertical"
+            android:id="@+id/tv_acertos_quis"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pular"
+            android:layout_centerInParent="true"
+            android:visibility="visible"
+            android:id="@+id/tela_quiz_bt_pular"/>
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginRight="280dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="erros"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/tv_erros_quis"/>
+    </RelativeLayout>
+</RelativeLayout>

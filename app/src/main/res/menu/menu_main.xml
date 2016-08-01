@@ -1,0 +1,23 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    <item
+        android:id="@+id/adicionar_novo_item"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="100"
+
+        android:icon="@drawable/adicionar_novo_item"
+        android:title="@string/novo_item" />
+    <item
+        android:id="@+id/criar_novo_perfil"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="100"
+        android:icon="@drawable/novo_usuario"
+        android:title="criar novo perfil" />
+    <item
+        android:id="@+id/carregar_perfil"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="100"
+        android:icon="@drawable/carrega_usuario"
+        android:title="carregar perfil" />
+</menu>

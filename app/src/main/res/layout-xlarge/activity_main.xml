@@ -1,0 +1,40 @@
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_activity_main"
+    android:id="@+id/ll_principal"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical|bottom">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:gravity="center_horizontal" >
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/main_activity_bt_tela_calculo"
+            android:background="@drawable/bt_personalizado_calculo" />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="40dp"
+            android:id="@+id/main_activity_bt_conheca_sua_conta"
+            android:background="@drawable/bt_personalizado_conheca_sua_conta" />
+        <Button
+            android:layout_marginLeft="40dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/main_activity_bt_quiz"
+            android:background="@drawable/bt_personalizado_quiz"/>
+        <Button
+            android:layout_marginLeft="40dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/main_activity_bt_tela_manual"
+            android:background="@drawable/bt_personalizado_tela_manual" />
+    </LinearLayout>
+</LinearLayout>

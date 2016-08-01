@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rf" >
+    <RelativeLayout
+        android:background="@color/preto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="22dp"
+            android:textSize="30dp"
+            android:textColor="@color/branco"
+            android:layout_marginLeft="40dp"
+            android:id="@+id/tv_tela_quiz_resultado_acertos"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="20dp"
+            android:textColor="@color/branco"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/tv_tela_quiz_resultado_acertos"
+            android:id="@+id/tv_tela_quiz_resultado_erros"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="22dp"
+            android:textColor="@color/branco"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/tv_tela_quiz_resultado_erros"
+            android:id="@+id/tv_tela_quiz_resultado_pulos"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:src="@drawable/tesla"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="terminar"
+        android:id="@+id/bt_tela_quiz_resultado_terminar_jogo"/>
+</LinearLayout>

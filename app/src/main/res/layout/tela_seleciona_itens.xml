@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_height="match_parent">
+    <ListView
+        android:animateLayoutChanges="true"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_height="0dp"
+        android:choiceMode="multipleChoice"
+        android:smoothScrollbar="true"
+        android:fastScrollEnabled="true"
+        android:fastScrollAlwaysVisible="false"
+        android:layout_weight="1"
+        android:divider="@color/DeepSkyBlue"
+        android:dividerHeight="0.5sp"
+        android:id="@+id/lv_itens_pre_cadastrados"/>
+    <Button
+        android:layout_alignBottom="@+id/lv_itens_pre_cadastrados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_tela_seleciona_itens_cadastra_itens"
+        android:text="cadastrar itens selecionados"/>
+    <Button
+        android:layout_alignBottom="@+id/lv_itens_pre_cadastrados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_tela_seleciona_itens_novo_item"
+        android:text="Novo item"/>
+</LinearLayout>

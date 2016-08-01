@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
+    <string name="app_name">Ergos: energia calculada</string>
+    <string name="action_settings">Sobre</string>
+    <string name="potencia">Potência (W): </string>
+    <string name="tempo">Tempo de uso diário (H): </string>
+    <string name="consumo_diario">Consumo Diário: </string>
+    <string name="consumo_mensal">Consumo Mensal: </string>
+    <string name="custo">Custo mensal (R$):  </string>
+    <string name="novo_item">cadastrar novo item</string>
+    <string name="Voltar">Voltar</string>
+    <string name="erro">Erro. Multiplicação por zero</string>
+</resources>
