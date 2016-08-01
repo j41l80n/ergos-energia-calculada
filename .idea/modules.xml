@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Ergosenergiacalculada.iml" filepath="$PROJECT_DIR$/Ergosenergiacalculada.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ergos-energia-calculada.iml" filepath="$PROJECT_DIR$/ergos-energia-calculada.iml" />
     </modules>
   </component>
 </project>
