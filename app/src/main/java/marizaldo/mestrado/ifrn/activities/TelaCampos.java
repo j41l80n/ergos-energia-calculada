@@ -1,4 +1,4 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+
+import marizaldo.mestrado.ifrn.R;
 
 public class TelaCampos extends Activity
 {

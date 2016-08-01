@@ -1,4 +1,4 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -33,6 +33,8 @@ import android.widget.Toast;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.*;
+
+import marizaldo.mestrado.ifrn.R;
 
 
 public class TelaCalculo extends ActionBarActivity implements Serializable

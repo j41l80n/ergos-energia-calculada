@@ -1,7 +1,6 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.helpers;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import android.content.ContentValues;

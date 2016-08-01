@@ -1,4 +1,4 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.helpers;
 
 import java.util.ArrayList;
 import java.util.Collections;

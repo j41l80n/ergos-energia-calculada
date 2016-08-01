@@ -1,9 +1,11 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.activities;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.WindowManager;
+
+import marizaldo.mestrado.ifrn.R;
 
 /**
  * Created by Jailson on 28/09/2014.

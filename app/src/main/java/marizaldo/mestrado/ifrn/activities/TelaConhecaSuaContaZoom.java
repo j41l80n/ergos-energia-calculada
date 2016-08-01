@@ -1,4 +1,4 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import marizaldo.mestrado.ifrn.R;
+import marizaldo.mestrado.ifrn.helpers.TouchImageView;
 
 public class TelaConhecaSuaContaZoom extends Activity
 {

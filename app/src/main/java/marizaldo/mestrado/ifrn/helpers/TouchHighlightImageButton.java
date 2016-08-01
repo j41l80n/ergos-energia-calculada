@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.helpers;
 
 import android.content.Context;
 import android.content.res.TypedArray;

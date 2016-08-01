@@ -1,4 +1,4 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +15,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
+import marizaldo.mestrado.ifrn.R;
 
 
 public class TelaManual extends Activity

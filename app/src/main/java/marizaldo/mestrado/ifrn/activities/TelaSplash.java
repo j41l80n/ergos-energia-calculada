@@ -1,4 +1,4 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import marizaldo.mestrado.ifrn.R;
+import marizaldo.mestrado.ifrn.activities.MainActivity;
 
 public class TelaSplash extends Activity implements Animation.AnimationListener, Runnable
 {

@@ -1,4 +1,4 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,6 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Collections;
 import java.util.List;
+
+import marizaldo.mestrado.ifrn.helpers.BancoDadosPerguntas;
+import marizaldo.mestrado.ifrn.helpers.Questao;
+import marizaldo.mestrado.ifrn.R;
 
 public class TelaQuiz extends Activity
 {

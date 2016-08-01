@@ -1,4 +1,4 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,9 +16,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import marizaldo.mestrado.ifrn.R;
+import marizaldo.mestrado.ifrn.activities.TelaCadastroNovoItem;
 
 public class TelaSelecionaItens extends Activity
 {

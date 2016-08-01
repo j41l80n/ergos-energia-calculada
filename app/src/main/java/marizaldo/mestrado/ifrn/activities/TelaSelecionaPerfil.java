@@ -1,4 +1,4 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -21,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import marizaldo.mestrado.ifrn.R;
 
 
 public class TelaSelecionaPerfil extends Activity

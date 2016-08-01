@@ -1,4 +1,4 @@
-package marizaldo.mestrado.ifrn;
+package marizaldo.mestrado.ifrn.activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -13,6 +13,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import marizaldo.mestrado.ifrn.helpers.ColorTool;
+import marizaldo.mestrado.ifrn.R;
 
 public class TelaConhecaSuaConta extends FragmentActivity implements View.OnTouchListener
 {
