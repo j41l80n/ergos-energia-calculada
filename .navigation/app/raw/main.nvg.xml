@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigationModel
+  ns = "http://schemas.android.com?import=com.android.tools.idea.editors.navigation.model.*">
+  <locations  
+    class = "java.util.ArrayList">
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "marizaldo.mestrado.ifrn.TelaQuizConfirmaResposta"/>
+      <point      
+        x = "500"      
+        y = "3000"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "marizaldo.mestrado.ifrn.TelaConhecaSuaContaZoom"/>
+      <point      
+        x = "1320"      
+        y = "680"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "marizaldo.mestrado.ifrn.TelaCampos"/>
+      <point      
+        x = "1824"      
+        y = "1760"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "marizaldo.mestrado.ifrn.TelaQuizResultado"/>
+      <point      
+        x = "550"      
+        y = "3050"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "marizaldo.mestrado.ifrn.TelaManual"/>
+      <point      
+        x = "600"      
+        y = "3100"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "marizaldo.mestrado.ifrn.TelaQuiz"/>
+      <point      
+        x = "1320"      
+        y = "1260"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "marizaldo.mestrado.ifrn.TelaConhecaSuaConta"/>
+      <point      
+        x = "650"      
+        y = "3150"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "marizaldo.mestrado.ifrn.MainActivity"/>
+      <point      
+        x = "496"      
+        y = "100"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "marizaldo.mestrado.ifrn.MainActivity"/>
+      <point      
+        x = "1316"      
+        y = "100"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "marizaldo.mestrado.ifrn.TelaCalculo"/>
+      <point      
+        x = "500"      
+        y = "1840"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "marizaldo.mestrado.ifrn.TelaCadastroNovoItem"/>
+      <point      
+        x = "1484"      
+        y = "2428"/>
+    </statePointEntry>
+  </locations>
+</navigationModel>
