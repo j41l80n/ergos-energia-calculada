@@ -37,7 +37,7 @@ public class TelaSelecionaPerfil extends Activity
     private Bundle bundleTelaSelecionaPerfil;
     private Intent intentTelaSelecionaPerfil;
     private TextView text1;
-
+    private int numeroPerfisValidos = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -68,11 +68,21 @@ public class TelaSelecionaPerfil extends Activity
                             !cursor.getString(cursor.getColumnIndex("name")).equals("tb_perguntas")
                             && !cursor.getString(cursor.getColumnIndex("name")).equals("tb_itens"))
                     {
-                        perfis.add(cursor.getString(cursor.getColumnIndex("name")));
+                        perfis.add(cursor.getString(cursor.getColumnIndex("name")).replace('_', ' '));
+                        numeroPerfisValidos++;
                     }
                 }
                 if(perfis.size() == 0)
                 {
+                    bundleTelaSelecionaPerfil = new Bundle();
+                    intentTelaSelecionaPerfil = new Intent();
+                    numeroPerfisValidos = 0;
+                    bundleTelaSelecionaPerfil.putString("nomeTabela", listChoice);
+                    bundleTelaSelecionaPerfil.putBoolean("apagaTudo", true);
+                    bundleTelaSelecionaPerfil.putInt("numeroPerfis", numeroPerfisValidos);
+                    bundleTelaSelecionaPerfil.putInt("chave", 132);
+                    intentTelaSelecionaPerfil.putExtras(bundleTelaSelecionaPerfil);
+                    setResult(RESULT_OK, intentTelaSelecionaPerfil);
                     finish();
                 }
             }
@@ -82,7 +92,8 @@ public class TelaSelecionaPerfil extends Activity
 
         lvPerfis.setAdapter(itemsAdapter);
 
-        lvPerfis.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvPerfis.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 texto1 = (TextView) view.findViewById(android.R.id.text1);
@@ -92,6 +103,7 @@ public class TelaSelecionaPerfil extends Activity
                 intentTelaSelecionaPerfil = new Intent();
 
                 bundleTelaSelecionaPerfil.putString("nomeTabela", listChoice);
+                bundleTelaSelecionaPerfil.putInt("numeroPerfis", numeroPerfisValidos);
                 bundleTelaSelecionaPerfil.putInt("chave", 132);
                 intentTelaSelecionaPerfil.putExtras(bundleTelaSelecionaPerfil);
                 setResult(RESULT_OK, intentTelaSelecionaPerfil);
@@ -99,12 +111,17 @@ public class TelaSelecionaPerfil extends Activity
             }
         });
 
-        lvPerfis.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        lvPerfis.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
+        {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 text1 = (TextView) view.findViewById(android.R.id.text1);
                 String nomeTabela = text1.getText().toString();
-                mensagemAlerta("Excluir", "Deseja realmente excluir o item?", nomeTabela);
+
+                nomeTabela = nomeTabela.replace('_', ' ');
+
+                mensagemAlerta("Excluir", "Deseja realmente apagar " + nomeTabela , nomeTabela);
                 return true;
             }
         });
@@ -158,9 +175,11 @@ public class TelaSelecionaPerfil extends Activity
     {
         try
         {
+            nomeTabela = nomeTabela.replace(' ', '_');
             bancoDadosErgos = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
             bancoDadosErgos.execSQL("DROP TABLE " + nomeTabela +  ";");
-            toast("perfil " + nomeTabela + " excluido");
+            nomeTabela = nomeTabela.replace('_', ' ');
+            toast("perfil " + nomeTabela + " apagado");
             vibrar();
 
         }

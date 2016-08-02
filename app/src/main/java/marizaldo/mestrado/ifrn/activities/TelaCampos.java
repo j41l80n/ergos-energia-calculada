@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -43,6 +44,7 @@ public class TelaCampos extends Activity
     private int posicao;
     private DecimalFormat decimal = new DecimalFormat("#,##0.000");
     private double valorCalculado = 0.0;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,6 +54,8 @@ public class TelaCampos extends Activity
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_campos);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         intentTelaCampos = getIntent();
         bundleTelaCampos = getIntent().getExtras();
@@ -108,12 +112,6 @@ public class TelaCampos extends Activity
     {
         edTelaCamposPotencia = (EditText) findViewById(R.id.et_tela_campos_potencia);
         edTelaCamposTempo = (EditText) findViewById(R.id.et_tela_campos_tempo);
-
-        edTelaCamposPotencia.setTextColor(getResources().getColor(R.color.preto));
-        edTelaCamposPotencia.setShadowLayer(5, 0, 0, getResources().getColor(R.color.branco));
-
-        edTelaCamposTempo.setTextColor(getResources().getColor(R.color.preto));
-        edTelaCamposTempo.setShadowLayer(5, 0, 0, getResources().getColor(R.color.branco));
     }
 
     private void configuraButton()
@@ -142,6 +140,11 @@ public class TelaCampos extends Activity
                 else if (verificaTempo.trim().isEmpty())
                 {
                     edTelaCamposTempo.setError("Campo vazio");
+                    edTelaCamposTempo.requestFocus();
+                }
+                else if (Double.parseDouble(edTelaCamposTempo.getText().toString()) > 24)
+                {
+                    edTelaCamposTempo.setError("maior que 24 horas");
                     edTelaCamposTempo.requestFocus();
                 }
                 else if (verificaTempo.equals("0") || verificaPotencia.equals("0"))
@@ -206,10 +209,13 @@ public class TelaCampos extends Activity
                     tvPotenciaKWh.setText("");
                     tvConsumoMensalKWh.setText("");
                     tvConsumoDiarioKWwh.setText("");
+                    edTelaCamposTempo.setText("");
+                    edTelaCamposTempo.setEnabled(false);
                 }
                 else if (!edTelaCamposPotencia.getText().toString().equals("") &&
                         !edTelaCamposTempo.getText().toString().equals(""))
                 {
+                    edTelaCamposTempo.setEnabled(true);
                     aux_potencia = (Double.parseDouble(edTelaCamposPotencia.getText()
                             .toString()) / 1000);
                     tvPotenciaKWh.setVisibility(View.VISIBLE);
@@ -220,10 +226,11 @@ public class TelaCampos extends Activity
                     valorCalculado = valorCalculado / 1000;
 
                     tvConsumoDiarioKWwh.setText(" " + decimal.format(valorCalculado) + " kWh");
-                    tvConsumoMensalKWh.setText(" " + decimal.format(valorCalculado*30) + " kWh");
+                    tvConsumoMensalKWh.setText(" " + decimal.format(valorCalculado * 30) + " kWh");
                 }
                 else if (!edTelaCamposPotencia.getText().toString().equals(""))
                 {
+                    edTelaCamposTempo.setEnabled(true);
                     aux_potencia = (Double.parseDouble(edTelaCamposPotencia.getText().toString()) / 1000);
                     tvPotenciaKWh.setVisibility(View.VISIBLE);
                     tvPotenciaKWh.setText("kW: " + decimal.format(aux_potencia));
@@ -231,7 +238,8 @@ public class TelaCampos extends Activity
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
+            public void afterTextChanged(Editable s)
+            {
 
             }
         });

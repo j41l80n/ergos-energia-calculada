@@ -24,7 +24,7 @@
         android:divider="@color/DeepSkyBlue"
         android:dividerHeight="0.5sp" />
     <TableLayout
-        android:background="@color/cinza"
+        android:background="@color/amarelo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stretchColumns="0"
@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="kWh mensal: "
+                android:text="kWh mensal "
                 android:gravity="center"
                 android:id="@+id/tv_tela_calculo_kwh_mensal" />
         </TableRow>
@@ -63,7 +63,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Custo total mensal (R$): "
+                android:text="Custo total mensal (R$) "
                 android:id="@+id/tv_tela_calculo_custo_total_mensal"
                 android:gravity="center" />
         </TableRow>
@@ -78,9 +78,10 @@
     </TableLayout>
     <TableLayout
         android:gravity="center"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cinza"
+        android:background="@color/amarelo"
         android:id="@+id/tl_tela_calculo_consumos_custo_extra">
         <TableRow
             android:layout_gravity="center"
@@ -88,7 +89,7 @@
             <TextView
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_marginRight="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,7 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="5"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:inputType="numberDecimal"
                     android:textColor="@color/branco"
                     android:layout_marginBottom="15dp"

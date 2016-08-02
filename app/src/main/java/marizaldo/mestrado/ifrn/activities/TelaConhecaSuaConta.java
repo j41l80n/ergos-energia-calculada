@@ -14,8 +14,8 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import marizaldo.mestrado.ifrn.helpers.ColorTool;
 import marizaldo.mestrado.ifrn.R;
+import marizaldo.mestrado.ifrn.helpers.ColorTool;
 
 public class TelaConhecaSuaConta extends FragmentActivity implements View.OnTouchListener
 {

@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,6 +16,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,6 +35,10 @@ public class MainActivity extends Activity
     private Button btQuiz;
     private Button btTelaManual;
     private Intent intentMainActivity;
+    private RelativeLayout rlPrincipal;
+    private ImageView ivIfrn;
+    private ImageView sbf;
+    private LinearLayout llPrincipal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,13 +49,15 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        configutaRelativeLayout();
+        configuraImageView();
+        configutaLinearLayout();
         configuraButtons();
         chamaTelaCalculo();
         chamaTelaConhecaSuaConta();
         chamaTelaQuiz();
         chamaTelaManual();
         criarBanco();
-        vibrar();
     }
 
     private void configuraButtons()
@@ -56,6 +66,54 @@ public class MainActivity extends Activity
         btConhecaSuaConta = (Button) findViewById(R.id.main_activity_bt_conheca_sua_conta);
         btQuiz = (Button) findViewById(R.id.main_activity_bt_quiz);
         btTelaManual = (Button) findViewById(R.id.main_activity_bt_tela_manual);
+    }
+
+    private void configuraImageView()
+    {
+        ivIfrn = (ImageView) findViewById(R.id.ifrn);
+        sbf = (ImageView) findViewById(R.id.sbf);
+    }
+
+    private void configutaRelativeLayout()
+    {
+        rlPrincipal = (RelativeLayout) findViewById(R.id.ll_principal);
+        mostraOpcoes();
+    }
+
+    private void configutaLinearLayout()
+    {
+        llPrincipal = (LinearLayout) findViewById(R.id.ll_pincipal);
+    }
+
+    private void mostraOpcoes()
+    {
+        rlPrincipal.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                final int MILISEGUNDOS = 20000;
+
+                if(!llPrincipal.isShown())
+                {
+                    ivIfrn.setVisibility(View.GONE);
+                    sbf.setVisibility(View.GONE);
+                    llPrincipal.setVisibility(View.VISIBLE);
+                    vibrar();
+                    new Handler().postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run() {
+                            ivIfrn.setVisibility(View.VISIBLE);
+                            sbf.setVisibility(View.VISIBLE);
+                            llPrincipal.setVisibility(View.GONE);
+                        }
+                    }, MILISEGUNDOS);
+                }
+
+
+            }
+        });
     }
 
     private void chamaTelaCalculo()
@@ -189,5 +247,14 @@ public class MainActivity extends Activity
         {
             out.write(buffer, 0, read);
         }
+    }
+
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+        ivIfrn.setVisibility(View.VISIBLE);
+        sbf.setVisibility(View.VISIBLE);
+        llPrincipal.setVisibility(View.GONE);
     }
 }

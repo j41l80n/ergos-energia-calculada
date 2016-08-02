@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
@@ -19,9 +20,8 @@ import android.widget.Toast;
 import java.util.Collections;
 import java.util.List;
 
-import marizaldo.mestrado.ifrn.helpers.BancoDadosPerguntas;
-import marizaldo.mestrado.ifrn.helpers.Questao;
 import marizaldo.mestrado.ifrn.R;
+import marizaldo.mestrado.ifrn.helpers.BancoDadosPerguntas;
 
 public class TelaQuiz extends Activity
 {
@@ -49,6 +49,7 @@ public class TelaQuiz extends Activity
     private RelativeLayout rlPrincipal;
     private RelativeLayout rlBotaoPular;
     ScrollView scrollView;
+    Typeface font;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -58,6 +59,8 @@ public class TelaQuiz extends Activity
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_quiz);
+
+        font = Typeface.createFromAsset(getAssets(), "fonts/caviar_dreams_bold.ttf");
 
         configuraRelativeLayout();
         configuraScrollView();
@@ -130,6 +133,7 @@ public class TelaQuiz extends Activity
         btPular.setTextColor(getResources().getColor(R.color.branco));
         btPular.setShadowLayer(3, 0, 0, getResources().getColor(R.color.preto));
         btPular.setText("pular " + quantidadePulos + "X");
+        btPular.setTypeface(font);
     }
 
     private void configuraTextView()
@@ -141,10 +145,12 @@ public class TelaQuiz extends Activity
         tvQuantidadeAcertos = (TextView) findViewById(R.id.tv_acertos_quis);
         tvQuantidadeAcertos.setTextColor(getResources().getColor(R.color.branco));
         tvQuantidadeAcertos.setShadowLayer(3, 0, 0, getResources().getColor(R.color.DeepSkyBlue));
+        tvQuantidadeAcertos.setTypeface(font);
 
         tvQuantidadeErros = (TextView) findViewById(R.id.tv_erros_quis);
         tvQuantidadeErros.setTextColor(getResources().getColor(R.color.branco));
         tvQuantidadeErros.setShadowLayer(3, 0, 0, getResources().getColor(R.color.amarelo_ouro));
+        tvQuantidadeErros.setTypeface(font);
     }
 
     private void configuraRadioButton()

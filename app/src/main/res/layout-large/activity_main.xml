@@ -1,17 +1,19 @@
-<LinearLayout
+<RelativeLayout
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_activity_main"
     android:id="@+id/ll_principal"
-    android:layout_gravity="center_vertical"
-    android:gravity="center_vertical|bottom">
+    android:layout_gravity="center_vertical" >
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="13dp"
+        android:visibility="gone"
+        android:id="@+id/ll_pincipal"
+        android:layout_alignParentBottom="true"
         android:gravity="center_horizontal" >
         <Button
             android:layout_width="100dp"
@@ -38,4 +40,22 @@
             android:id="@+id/main_activity_bt_tela_manual"
             android:background="@drawable/bt_personalizado_tela_manual" />
     </LinearLayout>
-</LinearLayout>
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_width="225dp"
+        android:layout_height="120dp"
+        android:id="@+id/ifrn"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="150dp"
+        android:baselineAlignBottom="true"
+        android:src="@drawable/ifrn"/>
+    <ImageView
+        android:id="@+id/sbf"
+        android:layout_alignParentBottom="true"
+        android:layout_width="225dp"
+        android:layout_height="120dp"
+        android:layout_marginRight="110dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/sbf"/>
+</RelativeLayout>

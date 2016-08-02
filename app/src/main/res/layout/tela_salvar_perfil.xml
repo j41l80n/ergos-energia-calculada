@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold|italic"
+        android:layout_marginBottom="10dp"
         android:text="Dê um nome ao seu perfil"
         android:gravity="center" />
     <EditText

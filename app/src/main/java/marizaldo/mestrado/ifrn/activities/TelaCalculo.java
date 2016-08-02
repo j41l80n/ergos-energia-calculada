@@ -13,6 +13,7 @@ import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -25,6 +26,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TableLayout;
@@ -75,7 +77,7 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
     Double novoValor = 0.0;
     DecimalFormat decimal = new DecimalFormat("#,##0.000");
     DecimalFormat decimal2 = new DecimalFormat("#,##0.00");
-
+    private ImageView imgv;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -97,14 +99,15 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
         configuraTextViews();
         calculaGastoDiarioMensal();
         verificaPerfis();
+        teste();
     }
 
     private void configuraTableLayout()
     {
         tlTelaCalculoConsumosCusto = (TableLayout) findViewById(R.id.tl_tela_calculo_consumos_custo);
-        tlTelaCalculoConsumosCusto.setVisibility(View.GONE);
-
         tlTelaCalculoConsumosCustoExtra = (TableLayout) findViewById(R.id.tl_tela_calculo_consumos_custo_extra);
+
+        tlTelaCalculoConsumosCusto.setVisibility(View.GONE);
         tlTelaCalculoConsumosCusto.setVisibility(View.GONE);
     }
 
@@ -156,37 +159,39 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
     private void configuraEditText()
     {
         etTelaCalculoValorKWh = (EditText) findViewById(R.id.et_tela_calculo_inserir_custo_kwh);
+        etTelaCalculoValorKWh.setTextColor(getResources().getColor(R.color.preto));
+        etTelaCalculoValorKWh.setShadowLayer(3, 0, 0, getResources().getColor(R.color.preto));
     }
 
     private void configuraTextViews()
     {
         tvTelaCalculoKHwDiario = (TextView) findViewById(R.id.tv_tela_calculo_kwh_diario);
-        tvTelaCalculoKHwDiario.setTextColor(getResources().getColor(R.color.branco));
+        tvTelaCalculoKHwDiario.setTextColor(getResources().getColor(R.color.preto));
         tvTelaCalculoKHwDiario.setShadowLayer(3, 0, 0, getResources().getColor(R.color.DeepSkyBlue));
 
         tvTelaCalculoKWhDiarioResultado = (TextView) findViewById(R.id.tv_tela_calculo_kwh_diario_resultado);
-        tvTelaCalculoKWhDiarioResultado.setTextColor(getResources().getColor(R.color.branco));
-        tvTelaCalculoKWhDiarioResultado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.amarelo));
+        tvTelaCalculoKWhDiarioResultado.setTextColor(getResources().getColor(R.color.preto));
+        tvTelaCalculoKWhDiarioResultado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.vermelho));
 
         tvTelaCalculoKWhMensal = (TextView) findViewById(R.id.tv_tela_calculo_kwh_mensal);
-        tvTelaCalculoKWhMensal.setTextColor(getResources().getColor(R.color.branco));
+        tvTelaCalculoKWhMensal.setTextColor(getResources().getColor(R.color.preto));
         tvTelaCalculoKWhMensal.setShadowLayer(3, 0, 0, getResources().getColor(R.color.DeepSkyBlue));
 
         tvTelaCalculoKWhMensalResultado = (TextView) findViewById(R.id.tv_tela_calculo_kwh_mensal_resultado);
-        tvTelaCalculoKWhMensalResultado.setTextColor(getResources().getColor(R.color.branco));
-        tvTelaCalculoKWhMensalResultado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.laranja));
+        tvTelaCalculoKWhMensalResultado.setTextColor(getResources().getColor(R.color.preto));
+        tvTelaCalculoKWhMensalResultado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.vermelho));
 
         tvTelaCalculoCustoTotalMensal = (TextView) findViewById(R.id.tv_tela_calculo_custo_total_mensal);
-        tvTelaCalculoCustoTotalMensal.setTextColor(getResources().getColor(R.color.branco));
+        tvTelaCalculoCustoTotalMensal.setTextColor(getResources().getColor(R.color.preto));
         tvTelaCalculoCustoTotalMensal.setShadowLayer(3, 0, 0, getResources().getColor(R.color.DeepSkyBlue));
 
         tvTelaCalculoCustoTotalMensalCalculado = (TextView) findViewById(R.id.tv_tela_calculo_custo_total_mensal_calculado);
-        tvTelaCalculoCustoTotalMensalCalculado.setTextColor(getResources().getColor(R.color.branco));
-        tvTelaCalculoCustoTotalMensalCalculado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.verde));
+        //tvTelaCalculoCustoTotalMensalCalculado.setTextColor(getResources().getColor(R.color.branco));
+        //tvTelaCalculoCustoTotalMensalCalculado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.verde));
 
         tvExtra = (TextView) findViewById(R.id.tv_extra);
-        tvExtra.setTextColor(getResources().getColor(R.color.branco));
-        tvExtra.setShadowLayer(3, 0, 0, getResources().getColor(R.color.verde));
+        tvExtra.setTextColor(getResources().getColor(R.color.preto));
+        tvExtra.setShadowLayer(3, 0, 0, getResources().getColor(R.color.DeepSkyBlue));
 
         tvTelaCalculoCustoTotalMensalCalculado.setTextSize(15);
     }
@@ -195,6 +200,7 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
     {
         arrayMap.clear();
         bancoDadosErgos = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+        nomeTabela = nomeTabela.replace(' ', '_');
         String sql = "SELECT * FROM " + nomeTabela + ";";
         cursor = bancoDadosErgos.rawQuery(sql, null);
         DecimalFormat form = new DecimalFormat("0.000");
@@ -203,6 +209,8 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
         {
             if (cursor.getCount() > 0)
             {
+                int i = 0;
+                imgv = (ImageView) findViewById(R.id.list_image);
                 while (cursor.moveToNext())
                 {
                     mapString = new HashMap<>();
@@ -223,6 +231,7 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
                     {
                         mapString.put("valorItem", "clique para inserir potência e tempo");
                     }
+                    i++;
                     arrayMap.add(mapString);
                 }
                 consumoKwhMensal = consumoKwhDiario * 30;
@@ -248,16 +257,14 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
         {
             public View getView(int position, View convertView, ViewGroup parent)
             {
-                View view = super.getView(position, convertView, parent);
-                text1 = (TextView) view.findViewById(R.id.tv_listview_personalizado1);
-                text2 = (TextView) view.findViewById(R.id.tv_listview_2);
 
+                minhaView = super.getView(position, convertView, parent);
+                text1 = (TextView) minhaView.findViewById(R.id.tv_listview_personalizado1);
+                text2 = (TextView) minhaView.findViewById(R.id.tv_listview_2);
                 text1.setTextColor(getResources().getColor(R.color.preto));
                 text2.setTextColor(getResources().getColor(R.color.preto));
                 text2.setShadowLayer(3, 0, 0, getResources().getColor(R.color.DeepSkyBlue));
-
-                minhaView = super.getView(position, convertView, parent);
-                return view;
+                return minhaView;
             }
         };
 
@@ -300,6 +307,7 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
     private void atualizaCampos(String nomeItem)
     {
         bancoDadosErgos = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+        nomeTabela = nomeTabela.replace(' ', '_');
         String SQL = "SELECT * FROM " + nomeTabela + " WHERE nome_item = '" + nomeItem + "';";
         cursor = bancoDadosErgos.rawQuery(SQL, null);
 
@@ -334,13 +342,14 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
 
                     tvTelaCalculoCustoTotalMensalCalculado.setVisibility(View.VISIBLE);
                     tvTelaCalculoCustoTotalMensalCalculado.setText(decimal.format(novoValor));
-                    tvTelaCalculoCustoTotalMensalCalculado.setTextColor(getResources().getColor(R.color.preto));
-                    tvTelaCalculoCustoTotalMensalCalculado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.azul_escuro));
+                    //tvTelaCalculoCustoTotalMensalCalculado.setTextColor(getResources().getColor(R.color.preto));
+                    //tvTelaCalculoCustoTotalMensalCalculado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.azul_escuro));
                 }
 
                 if(consumoKwhDiario <= 0.000)
                 {
                     tlTelaCalculoConsumosCusto.setVisibility(View.GONE);
+                    tlTelaCalculoConsumosCustoExtra.setVisibility(View.GONE);
                     novoValor = 0.0;
                     tvTelaCalculoCustoTotalMensalCalculado.setText("clique para inserir o custo kWh");
                 }
@@ -371,6 +380,7 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
         {
             atualizaCampos(item);
             bancoDadosErgos = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+            nomeTabela = nomeTabela.replace(' ', '_');
             String sql = "DELETE FROM " + nomeTabela +" WHERE nome_item = '" + item + "'; ";
             bancoDadosErgos.execSQL(sql);
             toast("Item excluído");
@@ -396,6 +406,8 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 excluirItem(item);
+                //teste
+                //itensSelecionados.remove(posicao);
                 arrayMap.remove(posicao);
                 simpleAdapter.notifyDataSetChanged();
             }
@@ -440,6 +452,7 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
         try
         {
             bancoDadosErgos = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+            nomeTabela = nomeTabela.replace(' ', '_');
             String SQL = "INSERT INTO " + nomeTabela + " (nome_item, energia, custo) VALUES('" + item + "', " + 0 + ", " + 0 + ");";
             bancoDadosErgos.execSQL(SQL);
             //toast("Registro gravado com sucesso");
@@ -465,6 +478,7 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
             Double total_kwh_mensal = b.getDouble("total_kwh_mensal");
             String codigo = b.getString("codigo");
 
+
             itensSelecionados = b.getStringArrayList("itens");
 
             if (resultCode == RESULT_CANCELED)
@@ -478,19 +492,43 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
 
                 if(b.getInt("chave") == 132)
                 {
-                    nomeTabela = b.getString("nomeTabela");
-                    tvTelaCalculoKWhDiarioResultado.setText("");
-                    tvTelaCalculoKWhMensalResultado.setText("");
-                    consumoKwhDiario = 0.0;
-                    consumoKwhMensal = 0.0;
-                    tlTelaCalculoConsumosCusto.setVisibility(View.GONE);
-                    getSupportActionBar().setTitle("Perfil: " + nomeTabela);
-                    iniciaListview();
+                    int npv = b.getInt("numeroPerfis");
+                    boolean apagaTudo = b.getBoolean("apagaTudo");
+                    if(npv > 0)
+                    {
+                        nomeTabela = b.getString("nomeTabela");
+                        nomeTabela = nomeTabela.replace('_', ' ');
+
+                        tvTelaCalculoKWhDiarioResultado.setText("");
+                        tvTelaCalculoKWhMensalResultado.setText("");
+                        consumoKwhDiario = 0.0;
+                        consumoKwhMensal = 0.0;
+                        tlTelaCalculoConsumosCusto.setVisibility(View.GONE);
+                        tlTelaCalculoConsumosCustoExtra.setVisibility(View.GONE);
+                        getSupportActionBar().setTitle("" + nomeTabela);
+                        iniciaListview();
+                    }
+                    //preencheListview();
+                    if(apagaTudo && arrayMap.size() > 0)
+                    {
+                        arrayMap.clear();
+                        simpleAdapter.notifyDataSetChanged();
+                        getSupportActionBar().setTitle("");
+                    }
+                    else if(apagaTudo && arrayMap.size() == 0)
+                    {
+                        //arrayMap.clear();
+                        //simpleAdapter.notifyDataSetChanged();
+                        getSupportActionBar().setTitle("");
+                    }
                 }
                 else if(b.getInt("chave") == 666)
                 {
                     nomeTabela = b.getString("nomeTabela");
-                    getSupportActionBar().setTitle("Perfil: " + nomeTabela);
+
+                    nomeTabela = nomeTabela.replace('_', ' ');
+
+                    getSupportActionBar().setTitle("" + nomeTabela);
                     tvTelaCalculoKWhDiarioResultado.setText("");
                     tvTelaCalculoKWhMensalResultado.setText("");
                     consumoKwhDiario = 0.0;
@@ -503,6 +541,7 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
                 {
                     try
                     {
+                        nomeTabela = nomeTabela.replace(' ', '_');
                         bancoDadosErgos = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
                         String SQL = "UPDATE " + nomeTabela + " SET energia = " + auxiliar + " WHERE nome_item = '" + codigo + "'; ";
                         bancoDadosErgos.execSQL(SQL);
@@ -516,11 +555,11 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
                         {
                             Double valor = Double.parseDouble(tvTelaCalculoKWhMensalResultado.getText().toString().replace(',', '.'));
                             novoValor = valor * Double.parseDouble(etTelaCalculoValorKWh.getText().toString().trim());
-
+                            tvTelaCalculoCustoTotalMensalCalculado.setText("clique para inserir o custo kWh");
                             tvTelaCalculoCustoTotalMensalCalculado.setVisibility(View.VISIBLE);
                             tvTelaCalculoCustoTotalMensalCalculado.setText(decimal2.format(novoValor));
-                            tvTelaCalculoCustoTotalMensalCalculado.setTextColor(getResources().getColor(R.color.preto));
-                            tvTelaCalculoCustoTotalMensalCalculado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.azul_escuro));
+                            tvTelaCalculoCustoTotalMensalCalculado.setTextColor(getResources().getColor(R.color.vermelho));
+                            tvTelaCalculoCustoTotalMensalCalculado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.vermelho));
                         }
 
                         preencheListview();
@@ -554,6 +593,7 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
                         mapString.put("valorItem", "clique para inserir potência e tempo");
                         arrayMap.add(mapString);
                         simpleAdapter.notifyDataSetChanged();
+                        tvTelaCalculoCustoTotalMensalCalculado.setText("clique para inserir o custo kWh");
                     }
                 }
                 else if (b.getInt("chave") == 3)
@@ -580,6 +620,7 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
     private void preencheListview()
     {
         arrayMap.clear();
+        nomeTabela = nomeTabela.replace(' ', '_');
         consultaSQL("SELECT * FROM " + nomeTabela);
 
         try
@@ -651,7 +692,9 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
+
         ArrayList<String> perfis = new ArrayList<>();
+
         consultaSQL("SELECT name FROM sqlite_master WHERE type='table';");
 
         if(id == R.id.adicionar_novo_item)
@@ -670,7 +713,10 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
             }
             if(perfis.size() > 0 && !getSupportActionBar().getTitle().equals(""))
             {
+                bundleTelaCalculo = new Bundle();
+                bundleTelaCalculo.putStringArrayList("itensS", itensSelecionados);
                 intentTelaCalculo = new Intent(getApplicationContext(), TelaSelecionaItens.class);
+                intentTelaCalculo.putExtras(bundleTelaCalculo);
                 startActivityForResult(intentTelaCalculo, 0);
             }
             else
@@ -724,12 +770,13 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
             public void onClick(View v)
             {
                 tvTelaCalculoCustoTotalMensalCalculado.setVisibility(View.GONE);
-                etTelaCalculoValorKWh.setVisibility(View.VISIBLE);
-                tvExtra.setVisibility(View.VISIBLE);
-                etTelaCalculoValorKWh.setBackgroundColor(getResources().getColor(R.color.laranja));
+                tlTelaCalculoConsumosCustoExtra.setVisibility(View.VISIBLE);
             }
         });
+    }
 
+    private void teste()
+    {
         etTelaCalculoValorKWh.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -744,24 +791,27 @@ public class TelaCalculo extends ActionBarActivity implements Serializable
                 if (!etTelaCalculoValorKWh.getText().toString().trim().equals(""))
                 {
                     DecimalFormat decimal = new DecimalFormat("#,##0.00");
-                    Double valor = Double.parseDouble(tvTelaCalculoKWhMensalResultado.getText().toString().replace(',', '.'));
+                    //pra ajeitar
+                    Double valor = Double.parseDouble(tvTelaCalculoKWhMensalResultado.getText().toString().replace(".", "").replace(",", "."));
                     novoValor = valor * Double.parseDouble(etTelaCalculoValorKWh.getText().toString().trim());
 
                     tvTelaCalculoCustoTotalMensalCalculado.setVisibility(View.VISIBLE);
-
                     tvTelaCalculoCustoTotalMensalCalculado.setText(decimal.format(novoValor));
                     tvTelaCalculoCustoTotalMensalCalculado.setTextColor(getResources().getColor(R.color.vermelho));
-                    tvTelaCalculoCustoTotalMensalCalculado.setShadowLayer(7, 0, 0, getResources().getColor(R.color.branco));
+                    tvTelaCalculoCustoTotalMensalCalculado.setShadowLayer(7, 0, 0, getResources().getColor(R.color.vermelho));
                     tvTelaCalculoCustoTotalMensalCalculado.setTextSize(26);
                 }
-                else if(etTelaCalculoValorKWh.getText().toString().trim().equals(""))
+                //else if(etTelaCalculoValorKWh.getText().toString().trim().equals(""))
+                else if(consumoKwhDiario <= 0.0 || etTelaCalculoValorKWh.getText().toString().trim().equals(""))
                 {
-                    etTelaCalculoValorKWh.setVisibility(View.GONE);
-                    tvExtra.setVisibility(View.GONE);
+                    tlTelaCalculoConsumosCusto.setVisibility(View.GONE);
+                    tlTelaCalculoConsumosCustoExtra.setVisibility(View.GONE);
+                    //etTelaCalculoValorKWh.setVisibility(View.GONE);
+                    //tvExtra.setVisibility(View.GONE);
                     tvTelaCalculoCustoTotalMensalCalculado.setTextSize(15);
-                    tvTelaCalculoCustoTotalMensalCalculado.setText("clique para inserir o custo kWh");
+                    tvTelaCalculoCustoTotalMensalCalculado.setText(Html.fromHtml("<i>clique para inserir o custo kWh</i>"));
                     tvTelaCalculoCustoTotalMensalCalculado.setTextColor(getResources().getColor(R.color.preto));
-                    tvTelaCalculoCustoTotalMensalCalculado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.branco));
+                    tvTelaCalculoCustoTotalMensalCalculado.setShadowLayer(3, 0, 0, getResources().getColor(R.color.cinza));
                     InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                     imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
                 }

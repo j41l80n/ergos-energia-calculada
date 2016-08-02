@@ -46,27 +46,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tela_quiz_rb_acertiva_a"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
                 <RadioButton
                     android:padding="8dp"
                     android:button="@drawable/rb_personalizado_tela_quiz_acertivas"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:id="@+id/tela_quiz_rb_acertiva_b" />
                 <RadioButton
                     android:padding="8dp"
                     android:button="@drawable/rb_personalizado_tela_quiz_acertivas"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:id="@+id/tela_quiz_rb_acertiva_c" />
                 <RadioButton
                     android:padding="8dp"
                     android:button="@drawable/rb_personalizado_tela_quiz_acertivas"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:id="@+id/tela_quiz_rb_acertiva_d" />
             </RadioGroup>
         </LinearLayout>

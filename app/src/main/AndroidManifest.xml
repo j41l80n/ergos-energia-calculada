@@ -7,6 +7,14 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <!-- <activity
+             android:name=".TelaSplash"
+             android:label="@string/app_name" >
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>-->
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme"
@@ -43,7 +51,7 @@
         </activity>
         <activity
             android:name=".activities.TelaQuizResultado"
-            android:theme="@style/Theme.Transparent"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:parentActivityName=".activities.TelaQuiz" >
         </activity>
         <activity
@@ -65,19 +73,11 @@
         </activity>
         <activity
             android:name=".activities.TelaSelecionaPerfil"
-            android:theme="@style/Theme.Transparent" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
         <activity
             android:name=".activities.TelaSelecionaItens"
-            android:theme="@style/Theme.Transparent" >
+            android:theme="@style/Theme.Transparent">
         </activity>
-        <!-- <activity
-             android:name=".TelaSplash"
-             android:theme="@style/Theme.Transparent">
-          <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-         </activity>-->
      </application>
  </manifest>

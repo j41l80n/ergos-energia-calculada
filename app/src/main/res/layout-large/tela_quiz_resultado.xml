@@ -14,13 +14,13 @@
             android:layout_marginTop="30dp"
             android:textSize="35dp"
             android:textColor="@color/branco"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="70dp"
             android:id="@+id/tv_tela_quiz_resultado_acertos"
             android:layout_height="wrap_content" />
         <TextView
             android:textSize="25dp"
             android:textColor="@color/branco"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="85dp"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_below="@id/tv_tela_quiz_resultado_acertos"
@@ -29,7 +29,7 @@
         <TextView
             android:textSize="25dp"
             android:textColor="@color/branco"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="90dp"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_below="@id/tv_tela_quiz_resultado_erros"

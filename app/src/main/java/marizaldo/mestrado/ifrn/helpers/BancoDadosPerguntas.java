@@ -1,13 +1,16 @@
 package marizaldo.mestrado.ifrn.helpers;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import marizaldo.mestrado.ifrn.activities.Questao;
 
 public class BancoDadosPerguntas extends SQLiteOpenHelper
 {
@@ -150,7 +153,7 @@ public class BancoDadosPerguntas extends SQLiteOpenHelper
     String alt16_3 = "gasta energia, mais por maior que seja o tempo, este gasto é insignificante;";
     String alt16_4 = "não gasta energia, pois o LED brilha sozinho;";
 
-    String pergunta17 = "Uma lâmpada incandescente:;";
+    String pergunta17 = "Uma lâmpada incandescente:";
     String resposta17 = "tem seu funcionamento baseado no efeito joule;";
     String alt17_1 = "é a mais apropriada para iluminar ambientes;";
     String alt17_2 = "tem seu funcionamento baseado no efeito joule;";

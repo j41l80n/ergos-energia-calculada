@@ -19,7 +19,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import marizaldo.mestrado.ifrn.R;
-import marizaldo.mestrado.ifrn.activities.TelaCadastroNovoItem;
 
 public class TelaSelecionaItens extends Activity
 {
@@ -81,7 +80,7 @@ public class TelaSelecionaItens extends Activity
             {
                 intentTelaSelecionaItens = getIntent();
                 bundleTelaSelecionaItens = getIntent().getExtras();
-                itensSelecionadostelaCalculo = bundleTelaSelecionaItens.getStringArrayList("itensCalculo");
+                itensSelecionadostelaCalculo = bundleTelaSelecionaItens.getStringArrayList("itensS");
             }
 
             lvItensPreSelecionados.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, itens));

@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/preto">
+    android:background="@drawable/bg_activity_main">
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/bg_activity_main"
-        android:id="@+id/iv_animacao" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_width="125dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="70dp"
+        android:baselineAlignBottom="true"
+        android:src="@drawable/ifrn"/>
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_width="115dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/sbf"/>
+</RelativeLayout>

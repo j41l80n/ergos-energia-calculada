@@ -2,12 +2,14 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@color/preto"
+    android:background="@color/azul_escuro"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     <ListView
         android:id="@+id/lv_tela_seleciona_perfis_perfis"
         android:layout_width="match_parent"
+        android:divider="@color/branco"
+        android:dividerHeight="0.5sp"
         android:layout_height="match_parent" >
     </ListView>
 </LinearLayout>
